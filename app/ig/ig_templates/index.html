@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>Welcome to my Flask App!</h1>
+    <h2>Testing the new line</h2>
+    <h3>why</h3>
+
+    {% for post in posts %}
+        {{ post.img_url }}
+        {{ post.title}}
+        {{ post.author.username}}
+        {{ post.caption }}
+
+
+        <a href="{{ url_for('likePost',post_id=p.post_id) }}" class="btn btn-success">Like</a>
+        <a href="{{ url_for('unlikePost',post_id=p.post_id) }}" class="btn btn-danger">Unike</a>
+        Like Counter: {{ post.like_count() }}
+        {{ post.likers }}
+
+    {% endfor %}
+
+{% endblock %}
